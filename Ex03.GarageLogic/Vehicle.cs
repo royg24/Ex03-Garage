@@ -13,7 +13,6 @@ namespace Ex03.GarageLogic
     }
     public abstract class Vehicle
     {
-        //protected data members not private
         protected string m_ModelName;
         protected string m_LisenceNumber;
         protected float m_PrecentageOfEnergyLeft;

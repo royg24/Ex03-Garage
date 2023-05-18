@@ -80,6 +80,7 @@ Please choose one of the following options:
         {
             VehiclesCreator creator = new VehiclesCreator();
             string message = null;
+            string userChoice = null;
             int index = 1;
             Console.WriteLine("Choose the type of vehicle to add from the following:");
             foreach(String element in creator.VehiclesArray)
@@ -88,6 +89,8 @@ Please choose one of the following options:
                 Console.WriteLine(message);
                 index++;
             }
+            userChoice = Console.ReadLine();
+            Vehicle vehicleToAdd = creator.CreateVehicle(userChoice);
         }
         internal static void ShowLisenceNumbersInGarage(Garage i_Garage)
         {

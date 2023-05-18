@@ -13,9 +13,54 @@ namespace Ex03.GarageLogic
     }
     public class VehicleInGarage
     {
-        string m_OwnerName;
-        string m_OwnerPhone;
-        eVehicleStatus m_Status;
-        Vehicle m_Vehicle;
+        private string m_OwnerName;
+        private string m_OwnerPhone;
+       private  eVehicleStatus m_Status;
+        private Vehicle m_Vehicle;
+        public string OwnerName
+        {
+            get 
+            { 
+                return m_OwnerName; 
+            }
+            set
+            {
+                m_OwnerName = value;
+            }
+        }
+    public string OwnerPhone
+        {
+            get 
+            { 
+                return m_OwnerPhone;
+            }
+            set
+            {
+                m_OwnerPhone = value;
+            }
+        }
+        public eVehicleStatus VehicleStatus
+        {
+            get
+            { 
+                return m_Status;
+            }
+            set
+            {
+                m_Status = value;
+            }
+        }
+        public Vehicle Vehicle
+        {
+            get
+            {
+                return m_Vehicle;
+            }
+            set
+            {
+                m_Vehicle = value;
+            }
+        }
+
     }
 }

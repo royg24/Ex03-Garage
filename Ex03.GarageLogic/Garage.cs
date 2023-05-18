@@ -8,6 +8,13 @@ namespace Ex03.GarageLogic
     public class Garage
     {
         Dictionary<String, VehicleInGarage> m_VehiclesInGarage;
+        public Dictionary<String, VehicleInGarage> VehiclesInGarage
+        {
+            get
+            {
+                return m_VehiclesInGarage;
+            }
+        }
         public void AddNewVehicl()
         {
 

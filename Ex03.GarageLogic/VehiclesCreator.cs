@@ -17,23 +17,23 @@ namespace Ex03.GarageLogic
                 throw new FormatException();
             }
             Vehicle result;
-            if(i_UserChoice == "1")
+            if(userChoiceNumber == 1)
             {
                 result = new ElectricCar();
             }
-            else if(i_UserChoice == "2")
+            else if(userChoiceNumber == 2)
             {
                 result = new ElectricMotorCycle();
             }
-            else if(i_UserChoice == "3")
+            else if(userChoiceNumber == 3)
             {
                 result = new FueledCar();
             }
-            else if(i_UserChoice == "4")
+            else if(userChoiceNumber == 4)
             {
                 result = new ElectricCar();
             }
-            else if(i_UserChoice == "5") 
+            else if(userChoiceNumber == 5) 
             {
                 result = new Truck();
             }
