@@ -4,44 +4,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ex03.GarageLogic;
-namespace Ex03.ConsoleUI
+namespace Ex03.GarageLogic
 {
     public class VehiclesCreator
     {
-        public enum eVehiclesTypes
+        private String[] m_VehiclesArray = { "Electric car", "Electric motorcycle", "Fuled car", "Fuled motorcycle", "Truck" };
+        public Vehicle CreateVehicle(string i_UserChoice)
         {
-            FuledMotorcycle,
-            ElectricMotocycle,
-            FuledCar,
-            ElectricCar,
-            Truck
-        }
-        public Vehicle CreateVehicle(string i_VehicleType)
-        {
-            if(i_VehicleType == eVehiclesTypes.ElectricCar.ToString())
+            int userChoiceNumber;
+            if(int.TryParse(i_UserChoice, out userChoiceNumber) == false)
             {
-                return new ElectricCar();
+                throw new FormatException();
             }
-            else if(i_VehicleType == eVehiclesTypes.ElectricMotocycle.ToString())
+            Vehicle result;
+            if(userChoiceNumber == 1)
             {
-                return new ElectricMotorCycle();
+                result = new ElectricCar();
             }
-            else if(i_VehicleType == eVehiclesTypes.FuledCar.ToString())
+            else if(userChoiceNumber == 2)
             {
-                return new FueledCar();
+                result = new ElectricMotorCycle();
             }
-            else if(i_VehicleType==eVehiclesTypes.ElectricCar.ToString())
+            else if(userChoiceNumber == 3)
             {
-                return new ElectricCar();
+                result = new FueledCar();
             }
-            else if(i_VehicleType == eVehiclesTypes.Truck.ToString()) 
+            else if(userChoiceNumber == 4)
             {
-                return new Truck();
+                result = new ElectricCar();
+            }
+            else if(userChoiceNumber == 5) 
+            {
+                result = new Truck();
             }
             else
             {
-                //exception
-                return null;
+                throw new ArgumentException();
+            }
+            return result;
+        }
+        public String[] VehiclesArray
+        {
+            get
+            {
+                return m_VehiclesArray;
             }
         }
     }

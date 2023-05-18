@@ -8,6 +8,5 @@ namespace Ex03.GarageLogic
     public class FueledMotorcycle : MotorCycle
     {
         private FueledEngine m_Engine;
-   
     }
 }

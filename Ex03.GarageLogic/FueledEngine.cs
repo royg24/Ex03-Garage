@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Ex03.GarageLogic.FuelType;
 namespace Ex03.GarageLogic
 {
+    public enum eFuelType
+    {
+        Soler,
+        Octan95,
+        Octan96,
+        Octan98
+    }
     public class FueledEngine
     {
         private eFuelType m_FuelType;

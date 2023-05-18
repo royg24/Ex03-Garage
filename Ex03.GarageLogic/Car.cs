@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Ex03.GarageLogic.Color;
-using static Ex03.GarageLogic.NumOfDoors;
 namespace Ex03.GarageLogic
 {
+    public enum eNumOfDoors
+    {
+        two,
+        three,
+        four,
+        five
+    }
+    public enum eColor
+    {
+        white,
+        black,
+        yellow,
+        red
+    }
     public abstract class Car : Vehicle
     {
-        private eColor m_CarColor;
-        private eNumOfDoors m_NumOfDoors;
+        protected eColor m_CarColor;
+        protected eNumOfDoors m_NumOfDoors;
         public eNumOfDoors NumOfDoors
         {
             get

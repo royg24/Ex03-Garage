@@ -5,11 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Ex03.GarageLogic
 {
+    public enum eNumOfWheels
+    {
+        two,
+        five,
+        fourteen
+    }
     public abstract class Vehicle
     {
-        private string m_ModelName;
-        private string m_LisenceNumber;
-        private float m_PrecentageOfEnergyLeft;
+        protected string m_ModelName;
+        protected string m_LisenceNumber;
+        protected float m_PrecentageOfEnergyLeft;
         protected Wheel[] m_Wheels;
     }
 }

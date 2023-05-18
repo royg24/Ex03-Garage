@@ -40,24 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="Color.cs" />
     <Compile Include="ElectricCar.cs" />
     <Compile Include="ElectricEngine.cs" />
     <Compile Include="ElectricMotorCycle.cs" />
     <Compile Include="FueledCar.cs" />
     <Compile Include="FueledEngine.cs" />
     <Compile Include="FueledMotorCycle.cs" />
-    <Compile Include="FuelType.cs" />
     <Compile Include="Garage.cs" />
-    <Compile Include="LisenceType.cs" />
     <Compile Include="MotorCycle.cs" />
-    <Compile Include="NumOfDoors.cs" />
-    <Compile Include="NumOfWheels.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleInGarage.cs" />
     <Compile Include="VehiclesCreator.cs" />
-    <Compile Include="VehicleStatus.cs" />
     <Compile Include="Wheel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
