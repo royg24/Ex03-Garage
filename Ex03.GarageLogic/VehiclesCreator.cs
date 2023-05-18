@@ -43,7 +43,7 @@ namespace Ex03.GarageLogic
             }
             return result;
         }
-        public String[] VehiclesArray
+        public static String[] VehiclesArray
         {
             get
             {
