@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Ex03.GarageLogic.FuelType;
 namespace Ex03.GarageLogic
 {
     public class FueledEngine
     {
+        public enum eFuelType
+        {
+            Soler,
+            Octan95,
+            Octan96,
+            Octan98
+        }
         private eFuelType m_FuelType;
         private float m_CurrentFuelAmount;
         private float m_MaxFuelAmount;

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Ex03.GarageLogic
 {
+    //why struct?
     public struct Wheel
     {
         private string m_ManufacturerName;
