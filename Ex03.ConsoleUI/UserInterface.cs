@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Ex03.GarageLogic.VehiclesCreator;
 using Ex03.GarageLogic;
 namespace Ex03.ConsoleUI
 {
@@ -30,6 +31,7 @@ Please choose one of the following options:
                 Console.WriteLine(message);
                 userChoice = Console.ReadLine();
                 finish = ChooseMethod(garage, userChoice);
+                Console.Clear();
             } while (finish == false);
         }
         internal static bool ChooseMethod(Garage garage, string i_UserChoice)
@@ -76,7 +78,16 @@ Please choose one of the following options:
         }
         internal static void AddNewVehicleToGarage(Garage i_Garage)
         {
-
+            VehiclesCreator creator = new VehiclesCreator();
+            string message = null;
+            int index = 1;
+            Console.WriteLine("Choose the type of vehicle to add from the following:");
+            foreach(String element in creator.VehiclesArray)
+            {
+                message = string.Format("{0}. {1}", index, element);
+                Console.WriteLine(message);
+                index++;
+            }
         }
         internal static void ShowLisenceNumbersInGarage(Garage i_Garage)
         {
