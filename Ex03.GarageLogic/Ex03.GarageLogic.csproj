@@ -48,7 +48,6 @@
     <Compile Include="FueledMotorCycle.cs" />
     <Compile Include="Garage.cs" />
     <Compile Include="MotorCycle.cs" />
-    <Compile Include="NumOfWheels.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleInGarage.cs" />

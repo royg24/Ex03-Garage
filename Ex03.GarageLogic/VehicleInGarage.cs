@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Ex03.GarageLogic
 {
+    public enum eVehicleStatus
+    {
+        underRepair,
+        wasFixed,
+        paidUp
+    }
     public class VehicleInGarage
     {
-        public enum eVehicleStatus
-        {
-            underRepair,
-            wasFixed,
-            paidUp
-        }
         string m_OwnerName;
         string m_OwnerPhone;
         eVehicleStatus m_Status;

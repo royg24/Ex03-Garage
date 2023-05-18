@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ex03.GarageLogic;
-using static Ex03.GarageLogic.Enums;
 namespace Ex03.ConsoleUI
 {
+    public enum eVehiclesTypes
+    {
+        FuledMotorcycle,
+        ElectricMotocycle,
+        FuledCar,
+        ElectricCar,
+        Truck
+    }
     public class VehiclesCreator
     {
         public Vehicle CreateVehicle(string i_VehicleType)
