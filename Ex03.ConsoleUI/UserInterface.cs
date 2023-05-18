@@ -105,7 +105,7 @@ Please choose one of the following options:
             string userChoice = null;
             int index = 1;
             Console.WriteLine("Choose the type of vehicle to add from the following:");
-            foreach (String element in VehiclesArray)
+            foreach (String element in creator.VehiclesArray)
             {
                 message = string.Format("{0}. {1}", index, element);
                 Console.WriteLine(message);
