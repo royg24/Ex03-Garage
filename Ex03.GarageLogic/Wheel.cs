@@ -16,6 +16,10 @@ namespace Ex03.GarageLogic
             m_CurrentAirPressure = i_CurrentAirPressure;
             m_MaxAirPressure = i_MaxAirPressure;
         }
+        public Wheel ShallowClone()
+        {
+            return this.MemberwiseClone() as Wheel;
+        }
         public float MaxAirPressure
         {
             get

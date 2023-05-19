@@ -37,6 +37,27 @@ namespace Ex03.GarageLogic
                 return m_CarColor;
             }
         }
-          
+        public override void FillVehicleData(ref List<string> io_Data)
+        {
+            base.FillVehicleData(ref io_Data);
+            fillCarColor(io_Data[0]);
+            fillNumberOfDoors(io_Data[1]);
+            io_Data = io_Data.Skip(2).ToList();
+        }
+        public void fillCarColor(string i_CarColor)
+        {
+            if(Enum.TryParse(i_CarColor, true, out m_CarColor) == false)
+            {
+                throw new ArgumentException();
+            }
+        }
+        public void fillNumberOfDoors(string i_NumberOfDoors)
+        {
+            if (Enum.TryParse(i_NumberOfDoors, true, out m_NumOfDoors) == false)
+            {
+                throw new ArgumentException();
+            }
+        }
+
     }
 }

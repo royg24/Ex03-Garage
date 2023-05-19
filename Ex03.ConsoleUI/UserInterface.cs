@@ -98,14 +98,14 @@ Please choose one of the following options:
                 i_Garage.AddNewVehicle(licenseNumber, newVehicleInGarage);
             }
         }
-        internal static Vehicle CreateVehicle(Garage i_Garage,String i_LicenseNumber)
+        internal static Vehicle CreateVehicle(Garage i_Garage,string i_LicenseNumber)
         {
             VehiclesCreator creator = new VehiclesCreator();
             string message = null;
             string userChoice = null;
             int index = 1;
             Console.WriteLine("Choose the type of vehicle to add from the following:");
-            foreach (String element in creator.VehiclesArray)
+            foreach (string element in creator.VehiclesArray)
             {
                 message = string.Format("{0}. {1}", index, element);
                 Console.WriteLine(message);
@@ -113,9 +113,6 @@ Please choose one of the following options:
             }
             userChoice = Console.ReadLine();
             Vehicle newVehicle = i_Garage.CreateNewVehicle(userChoice);
-            //method for a vehicle data
-            //method for type of vehicle data
-            //method for type of engine data
             return newVehicle;
         }
         internal static void ShowLisenceNumbersInGarage(Garage i_Garage)
