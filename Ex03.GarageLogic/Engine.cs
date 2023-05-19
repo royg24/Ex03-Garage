@@ -10,15 +10,38 @@ namespace Ex03.GarageLogic
     {
         protected float m_MaxValue;
         protected float m_CurrentValue;
-        internal Engine(float i_MaxValue, float i_CurrentValue)
+        internal Engine(string i_MaxValue, float i_CurrentValue)
         {
-            m_MaxValue = i_MaxValue;
-            m_CurrentValue = i_CurrentValue;
-            internal void AddValur(float i_Value)
+            fillEngineData(i_MaxValue, i_CurrentValue);
+        }
+        internal void AddValue(float i_Value)
+        {
+            if (m_CurrentValue + i_Value <= m_MaxValue)
             {
-                if (m_HoursLeftInBattery + i_Value <= m_MaxHoursInBattery)
+                m_CurrentValue += i_Value;
+            }
+            else
+            {
+                throw new ValueOutOfRangeException();
+            }
+        }
+        private void fillEngineData(string i_CurrentValue, float i_MaxValue)
+        {
+            float currentValue;
+            if (float.TryParse(i_CurrentValue, out currentValue) == false)
+            {
+                throw new FormatException();
+            }
+            else
+            {
+                if (currentValue > i_MaxValue)
                 {
-                    m_HoursLeftInBattery += i_Value;
+                    throw new ValueOutOfRangeException();
+                }
+                else
+                {
+                    m_MaxValue = i_MaxValue;
+                    m_CurrentValue = currentValue;
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic
     public abstract class Vehicle
     {
         protected string m_ModelName;
-        protected string m_LisenceNumber;
+        protected string m_LisencePlate;
         protected float m_PrecentageOfEnergyLeft;
         protected Wheel[] m_Wheels;
         public virtual void FillVehicleData(ref List<String> io_Data)
@@ -63,6 +63,10 @@ namespace Ex03.GarageLogic
                 }
                 return wheels;
             }
+        }
+        public void AddLisencePlate(string i_LisencePlate)
+        {
+            m_LisencePlate = i_LisencePlate;
         }
     }
 }

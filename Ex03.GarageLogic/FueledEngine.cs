@@ -15,19 +15,19 @@ namespace Ex03.GarageLogic
     internal class FueledEngine : Engine
     {
         private eFuelType m_FuelType;
-        public FueledEngine(float i_CurrentFuelAmount, float i_MaxHoursInBattery) : base(i_CurrentFuelAmount, i_MaxHoursInBattery)
+        public FueledEngine(string i_CurrentFuelAmount, float i_MaxFuelAmount, eFuelType i_FuelType) : base(i_CurrentFuelAmount, i_MaxFuelAmount)
         {
-
+            m_FuelType = i_FuelType;
         }
-
         public void ToFuel(float i_AmountOfFuelToAdd , eFuelType i_FuelType)
         {
-            if(m_FuelType == i_FuelType)
+            if(i_FuelType == m_FuelType)
             {
-                if(m_CurrentFuelAmount + i_AmountOfFuelToAdd <= m_MaxFuelAmount)
-                {
-                    m_CurrentFuelAmount += i_AmountOfFuelToAdd;
-                }
+                AddValue(i_AmountOfFuelToAdd);
+            }
+            else
+            {
+                throw new ArgumentException();
             }
         }
     }

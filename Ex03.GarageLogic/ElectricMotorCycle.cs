@@ -15,7 +15,7 @@ namespace Ex03.GarageLogic
         {
             base.FillVehicleData(ref io_Data);
             FillWheelsData(io_Data[0], io_Data[1], k_NumOfWheels, k_MaxAirPressure);
-            ElectricEngine.FillEngineData(io_Data[2], k_MaxHoursInBattery);
+            m_Engine = new ElectricEngine(io_Data[2], k_MaxHoursInBattery);
             io_Data = io_Data.Skip(3).ToList();
         }
     }
