@@ -17,6 +17,14 @@ namespace Ex03.GarageLogic
         private string m_OwnerPhone;
        private  eVehicleStatus m_Status;
         private Vehicle m_Vehicle;
+        public VehicleInGarage(string i_OwnerName, string i_OwnerPhone, Vehicle i_Vehicle)
+        {
+            OwnerName = i_OwnerName;
+            OwnerPhone = i_OwnerPhone;
+            Vehicle = i_Vehicle;
+            m_Status = eVehicleStatus.underRepair;
+        }
+
         public string OwnerName
         {
             get 
@@ -61,6 +69,5 @@ namespace Ex03.GarageLogic
                 m_Vehicle = value;
             }
         }
-
     }
 }

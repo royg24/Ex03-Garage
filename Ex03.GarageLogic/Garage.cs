@@ -15,9 +15,15 @@ namespace Ex03.GarageLogic
                 return m_VehiclesInGarage;
             }
         }
-        public void AddNewVehicl()
+        public Vehicle CreateNewVehicle(String i_VehicleType)
         {
-
+            VehiclesCreator creator = new VehiclesCreator();
+            Vehicle newVehicle = creator.CreateVehicle(i_VehicleType);
+            return newVehicle;
+        }
+        public void AddNewVehicle(String i_LisenceNumber,VehicleInGarage i_NewVehicle)
+        {
+            m_VehiclesInGarage.Add(i_LisenceNumber, i_NewVehicle);
         }
         public void ShowLisenceNumbers()
         {

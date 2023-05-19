@@ -78,46 +78,42 @@ Please choose one of the following options:
         }
         internal static void AddNewVehicleToGarage(Garage i_Garage)
         {
-            VehicleInGarage newVehicle = new VehicleInGarage();
-            string input = null;
+            string ownerName = null;
+            string ownerPhone = null;
             string licenseNumber = null;
             Console.WriteLine("Please enter the licesne number of your vehicle");
             licenseNumber = Console.ReadLine();
             if (i_Garage.VehiclesInGarage.ContainsKey(licenseNumber) == true)
             {
-                Console.WriteLine("A vehicle with this license number is already excists.");
+                Console.WriteLine("A vehicle with this license number is already excsits.");
             }
             else
             {
                 Console.WriteLine("Please enter your name:");
-                input = Console.ReadLine();
-                newVehicle.OwnerName = input;
+                ownerName = Console.ReadLine();
                 Console.WriteLine("Please enter your phone number:");
-                input = Console.ReadLine();
-                newVehicle.OwnerPhone = input;
-                newVehicle.VehicleStatus = eVehicleStatus.underRepair;
-                CreateVehicleInGarage();
-                i_Garage.VehiclesInGarage.Add(licenseNumber, newVehicle);
+                ownerPhone = Console.ReadLine();
+                Vehicle newVehicle = CreateVehicle(i_Garage, licenseNumber);
+                VehicleInGarage newVehicleInGarage = new VehicleInGarage(ownerName, ownerPhone, newVehicle);
+                i_Garage.AddNewVehicle(licenseNumber, newVehicleInGarage);
             }
         }
-        internal static void CreateVehicleInGarage()
+        internal static Vehicle CreateVehicle(Garage i_Garage,string i_LicenseNumber)
         {
             VehiclesCreator creator = new VehiclesCreator();
             string message = null;
             string userChoice = null;
             int index = 1;
             Console.WriteLine("Choose the type of vehicle to add from the following:");
-            foreach (String element in creator.VehiclesArray)
+            foreach (string element in creator.VehiclesArray)
             {
                 message = string.Format("{0}. {1}", index, element);
                 Console.WriteLine(message);
                 index++;
             }
             userChoice = Console.ReadLine();
-            Vehicle vehicleToAdd = creator.CreateVehicle(userChoice);
-            //method for a vehicle data
-            //method for type of vehicle data
-            //method for type of engine data
+            Vehicle newVehicle = i_Garage.CreateNewVehicle(userChoice);
+            return newVehicle;
         }
         internal static void ShowLisenceNumbersInGarage(Garage i_Garage)
         {
