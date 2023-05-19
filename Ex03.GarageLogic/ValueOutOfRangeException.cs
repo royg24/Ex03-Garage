@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    internal class ValueOutOfRangeException
+    public class ValueOutOfRangeException : Exception
     {
+
     }
 }

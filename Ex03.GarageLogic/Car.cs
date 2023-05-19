@@ -44,14 +44,14 @@ namespace Ex03.GarageLogic
             fillNumberOfDoors(io_Data[1]);
             io_Data = io_Data.Skip(2).ToList();
         }
-        public void fillCarColor(string i_CarColor)
+        private void fillCarColor(string i_CarColor)
         {
             if(Enum.TryParse(i_CarColor, true, out m_CarColor) == false)
             {
                 throw new ArgumentException();
             }
         }
-        public void fillNumberOfDoors(string i_NumberOfDoors)
+        private void fillNumberOfDoors(string i_NumberOfDoors)
         {
             if (Enum.TryParse(i_NumberOfDoors, true, out m_NumOfDoors) == false)
             {

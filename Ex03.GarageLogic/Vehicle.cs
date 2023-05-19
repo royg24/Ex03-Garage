@@ -19,12 +19,11 @@ namespace Ex03.GarageLogic
         protected Wheel[] m_Wheels;
         public virtual void FillVehicleData(ref List<String> io_Data)
         {
-            m_LisenceNumber = io_Data[0];
-            m_LisenceNumber = io_Data[1];
-            FillPrecentageOfEnergyLeft(io_Data[2]);
-            io_Data = io_Data.Skip(3).ToList();
+            m_ModelName = io_Data[0];
+            fillPrecentageOfEnergyLeft(io_Data[1]);
+            io_Data = io_Data.Skip(2).ToList();
         }
-        public void FillPrecentageOfEnergyLeft(String i_PrecentageOfEnergyLeft)
+        private void fillPrecentageOfEnergyLeft(String i_PrecentageOfEnergyLeft)
         {
             float precenatgeOfEnergyLeft;
             if(float.TryParse(i_PrecentageOfEnergyLeft, out precenatgeOfEnergyLeft) == true)
@@ -41,6 +40,28 @@ namespace Ex03.GarageLogic
             else
             {
                 throw new FormatException();
+            }
+        }
+        protected Wheel[] FillWheelsData(string i_ManufacturerName, string i_CurrentAirPressure, int i_NumOfWheels, float i_MaxAirPressure)
+        {
+            float currentAirPressure;
+            if (float.TryParse(i_CurrentAirPressure, out currentAirPressure) == false)
+            {
+                throw new FormatException();
+            }
+            else if (currentAirPressure > i_MaxAirPressure)
+            {
+                throw new ValueOutOfRangeException();
+            }
+            else
+            {
+                Wheel[] wheels = new Wheel[i_NumOfWheels];
+                Wheel wheel = new Wheel(i_ManufacturerName, currentAirPressure, i_MaxAirPressure);
+                for (int i = 0; i < i_NumOfWheels; i++)
+                {
+                    wheels[i] = wheel.ShallowClone();
+                }
+                return wheels;
             }
         }
     }

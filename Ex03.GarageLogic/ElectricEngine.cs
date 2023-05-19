@@ -15,7 +15,7 @@ namespace Ex03.GarageLogic
             m_HoursLeftInBattery = i_HoursLeftInBattery; 
             m_MaxHoursInBattery = i_MaxHoursInBattery;
         }
-        private void fillElectricEngineData(string i_HoursLeftInBattery, float i_MaxHoursInBattery)
+        internal static ElectricEngine FillElectricEngineData(string i_HoursLeftInBattery, float i_MaxHoursInBattery)
         {
             float hoursLeftInBattery;
             if (float.TryParse(i_HoursLeftInBattery, out hoursLeftInBattery) == false)
@@ -30,7 +30,8 @@ namespace Ex03.GarageLogic
                 }
                 else
                 {
-                    m_Engine = new ElectricEngine(hoursLeftInBattery, k_MaxHoursInBattery);
+                    ElectricEngine engine = new ElectricEngine(hoursLeftInBattery, i_MaxHoursInBattery);
+                    return engine;
                 }
             }
         }
