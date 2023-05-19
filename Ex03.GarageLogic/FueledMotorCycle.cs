@@ -7,6 +7,14 @@ namespace Ex03.GarageLogic
 {
     public class FueledMotorcycle : MotorCycle
     {
+        private const int k_NumOfWheels = 2;
+        private const float k_MaxAirPressure = 31f;
+        private const float k_MaxFuelValue = 6.4f;
         private FueledEngine m_Engine;
+        public override void FillVehicleData(ref List<string> io_Data)
+        {
+            base.FillVehicleData(ref io_Data);
+            FillWheelsData(io_Data[0], io_Data[1], k_NumOfWheels, k_MaxAirPressure);
+        }
     }
 }

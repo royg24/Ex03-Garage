@@ -12,11 +12,13 @@ namespace Ex03.GarageLogic
         Octan96,
         Octan98
     }
-    public class FueledEngine
+    internal class FueledEngine : Engine
     {
         private eFuelType m_FuelType;
-        private float m_CurrentFuelAmount;
-        private float m_MaxFuelAmount;
+        public FueledEngine(float i_CurrentFuelAmount, float i_MaxHoursInBattery) : base(i_CurrentFuelAmount, i_MaxHoursInBattery)
+        {
+
+        }
 
         public void ToFuel(float i_AmountOfFuelToAdd , eFuelType i_FuelType)
         {
