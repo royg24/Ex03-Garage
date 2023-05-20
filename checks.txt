@@ -1,0 +1,65 @@
+1
+234234
+Roy
+0546679292
+3
+Nissan Juke
+45
+black
+4
+Fastenal
+30
+12
+END
+1
+465DA23
+Jhon
+0528741231
+1
+Tesla y
+60
+white
+3
+Michelin
+28
+3.4
+END
+1
+67ASW2
+Jane
+0508125909
+2
+Zero S
+38.6
+A2
+121
+Duff-Norton
+23
+1.8
+END
+1
+853223
+Peter
+0549192355
+4
+Yamaha r6
+78.23
+AA
+105
+Swagelok
+26.11
+4.96
+END
+1
+534S12Q
+Sarah
+0529819666
+5
+Scania L
+88.8
+N
+96
+Arbco
+21.22
+106
+END
