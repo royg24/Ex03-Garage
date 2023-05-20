@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
-{
-    internal abstract class Engine
+{public abstract class Engine
     {
         protected float m_MaxValue;
         protected float m_CurrentValue;

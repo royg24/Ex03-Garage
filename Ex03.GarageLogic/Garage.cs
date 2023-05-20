@@ -53,19 +53,32 @@ namespace Ex03.GarageLogic
                 return result;
             }
         }
-        public void ChangeVehicleStatus()
+        public void ChangeVehicleStatus(string i_LicensePlateID, eVehicleStatus i_VehicleStatus)
         {
-
+            m_VehiclesInGarage[i_LicensePlateID].VehicleStatus = i_VehicleStatus;
         }
-        public void AddAirToVehicleWheelsInVehicle()
+        public void MakeAirPressureInVehicleMaximum(string i_LicensePlateID)
         {
-
+            float maxAirPressure = m_VehiclesInGarage[i_LicensePlateID].Vehicle.Wheels[0].MaxAirPressure;
+            m_VehiclesInGarage[i_LicensePlateID].Vehicle.ChangeAirPressure(maxAirPressure);
         }
-        public void RefuelVheicleInGarage()
+        public eFuelType CheckIfFuelTypeValid(string i_FuelType)
         {
-
+            eFuelType result;
+            if (Enum.TryParse(i_FuelType, true, out result) == false)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                return result;
+            }
         }
-        public void ChargeVehicleInGarage()
+        public void RefuelVheicle(string i_LicenePlateID ,float i_AmountToFuel, eFuelType i_FuelType)
+        {
+            
+        }
+        public void ChargeVehicleInGarage(string i_LicensePlateID, float i_AmountToCharge)
         {
 
         }
@@ -73,5 +86,13 @@ namespace Ex03.GarageLogic
         {
 
         }
+        public void CheckIfLicensePlateIDExcistsOrNot(string i_licensePlateId, bool i_ExcistOrNot)
+        {
+             if(VehiclesInGarage.ContainsKey(i_licensePlateId) == i_ExcistOrNot)
+            {
+                throw new ArgumentException();
+            }
+        }
+
     }
 }

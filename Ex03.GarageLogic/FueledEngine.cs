@@ -12,14 +12,14 @@ namespace Ex03.GarageLogic
         Octan96,
         Octan98
     }
-    internal class FueledEngine : Engine
+    public class FueledEngine : Engine
     {
         private eFuelType m_FuelType;
-        public FueledEngine(string i_CurrentFuelAmount, float i_MaxFuelAmount, eFuelType i_FuelType) : base(i_CurrentFuelAmount, i_MaxFuelAmount)
+        internal FueledEngine(string i_CurrentFuelAmount, float i_MaxFuelAmount, eFuelType i_FuelType) : base(i_CurrentFuelAmount, i_MaxFuelAmount)
         {
             m_FuelType = i_FuelType;
         }
-        public void ToFuel(float i_AmountOfFuelToAdd , eFuelType i_FuelType)
+        internal void ToFuel(float i_AmountOfFuelToAdd , eFuelType i_FuelType)
         {
             if(i_FuelType == m_FuelType)
             {

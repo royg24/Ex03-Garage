@@ -38,5 +38,9 @@ namespace Ex03.GarageLogic
                 m_CurrentAirPressure += i_AmountOfAirToAdd;
             }
         }
+        internal void ChangeAirPressureInWheel(float i_MaxAirPressure)
+        {
+            m_CurrentAirPressure = i_MaxAirPressure;
+        }
     }
 }

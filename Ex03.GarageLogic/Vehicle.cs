@@ -17,6 +17,27 @@ namespace Ex03.GarageLogic
         protected string m_LisencePlateID;
         protected float m_PrecentageOfEnergyLeft;
         protected Wheel[] m_Wheels;
+        public string LicensePlateID
+        {
+            get
+            {
+                return m_LisencePlateID;
+            }
+            set
+            {
+                if(m_LisencePlateID == null)
+                {
+                    m_LisencePlateID = value;
+                }
+            }
+        }
+        public Wheel[] Wheels
+        {
+            get
+            {
+                return m_Wheels;
+            }
+        }
         public virtual void FillVehicleData(ref List<String> io_Data)
         {
             m_ModelName = io_Data[0];
@@ -64,9 +85,12 @@ namespace Ex03.GarageLogic
                 return wheels;
             }
         }
-        public void AddLisencePlate(string i_LisencePlate)
+        internal void ChangeAirPressure(float i_MaxAirPressure)
         {
-            m_LisencePlateID = i_LisencePlate;
+            foreach(Wheel wheel in m_Wheels)
+            {
+                wheel.ChangeAirPressureInWheel(i_MaxAirPressure);
+            }
         }
     }
 }

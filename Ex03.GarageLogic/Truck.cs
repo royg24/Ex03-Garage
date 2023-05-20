@@ -15,6 +15,13 @@ namespace Ex03.GarageLogic
         private bool m_IsDeliverDangerousSubstance;
         private int m_CargoVolume;
         private FueledEngine m_Engine;
+        public FueledEngine Engine
+        {
+            get
+            {
+                return m_Engine;
+            }
+        }
         public override void FillVehicleData(ref List<string> io_Data)
         {
             base.FillVehicleData(ref io_Data);

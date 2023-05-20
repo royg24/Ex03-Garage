@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Ex03.GarageLogic.VehiclesCreator;
+using static Ex03.ConsoleUI.GetUserData;
 using Ex03.GarageLogic;
 namespace Ex03.ConsoleUI
 {
@@ -59,7 +60,7 @@ Please choose one of the following options:
                         ChangeVehicleStatusInGarage(garage);
                         break;
                     case 4:
-                        AddAirToVehicleWheels(garage);
+                        AddAMaxAirAmountVehicleWheels(garage);
                         break;
                     case 5:
                         RefuelVheicleInGarage(garage);
@@ -82,45 +83,24 @@ Please choose one of the following options:
         internal static void AddNewVehicleToGarage(Garage i_Garage)
         {
             string ownerName = null;
-            string ownerPhone = null;
-            string licensePlate = null;
-            Console.WriteLine("Please enter the licesne plate's ID number of your vehicle");
-            licensePlate = Console.ReadLine();
+            string ownerPhoneNumber = null;
+            string licensePlateID = null;
+            licensePlateID = GetLicensePlateID(i_Garage, true);
             Console.Clear();
-            if (i_Garage.VehiclesInGarage.ContainsKey(licensePlate) == true)
-            {
-                Console.WriteLine("A vehicle with this license plate's ID is already excsits.");
-            }
-            else
-            {
-                Console.WriteLine("Please enter your name:");
-                ownerName = Console.ReadLine();
-                Console.WriteLine("Please enter your phone number:");
-                ownerPhone = Console.ReadLine();
-                Console.Clear();
-                Vehicle newVehicle = CreateVehicle(i_Garage, licensePlate);
-                VehicleInGarage newVehicleInGarage = new VehicleInGarage(ownerName, ownerPhone, newVehicle);
-                i_Garage.AddNewVehicle(licensePlate, newVehicleInGarage);
-            }
+            ownerName = GetOwnerName();
+            ownerPhoneNumber = GetOwnerPhoneNumber();
+            Console.Clear();
+            Vehicle newVehicle = CreateVehicle(i_Garage, licensePlateID);
+            VehicleInGarage newVehicleInGarage = new VehicleInGarage(ownerName, ownerPhoneNumber, newVehicle);
+            i_Garage.AddNewVehicle(licensePlateID, newVehicleInGarage);
         }
         internal static Vehicle CreateVehicle(Garage i_Garage,string i_LicensePlate)
         {
-            VehiclesCreator creator = new VehiclesCreator();
             List<string> vehicleData = null;
-            string message = null;
-            string userChoice = null;
-            int index = 1;
-            Console.WriteLine("Choose the type of vehicle to add from the following:");
-            foreach (string element in creator.VehiclesArray)
-            {
-                message = string.Format("{0}. {1}", index, element);
-                Console.WriteLine(message);
-                index++;
-            }
-            userChoice = Console.ReadLine();
+            string userChoice = GetUserChoice();
             Console.Clear();
             Vehicle newVehicle = i_Garage.CreateNewVehicle(userChoice);
-            newVehicle.AddLisencePlate(i_LicensePlate);
+            newVehicle.LicensePlateID = i_LicensePlate;
             vehicleData = GetVehicleData();
             newVehicle.FillVehicleData(ref vehicleData);
             return newVehicle;
@@ -169,19 +149,16 @@ Please write END when you finish put the data."
         }
         internal static void ShowLisencePlatesIDInGarage(Garage i_Garage)
         {
-            string returnString = null;
             string message = null;
             string vheicleStatusString = null;
             eVehicleStatus vehicleStatus;
             int counter = 0;
-            Console.WriteLine("Choose the status to see all license plate's ID from vehicles with this status");
-            vheicleStatusString = Console.ReadLine();
-            vehicleStatus = i_Garage.CheckIfStatusValid(vheicleStatusString);
+            vehicleStatus = GetVehicleStatus(i_Garage);
             message = string.Format("The license plate's ID of vehicle that {0} are:", vheicleStatusString);
             Tuple<string, eVehicleStatus>[] lisencePlatesIdArray = i_Garage.GetLisencePlateID();
             foreach (Tuple<string, eVehicleStatus> element in lisencePlatesIdArray)
             {
-                if(element.Item2 == vehicleStatus)
+                if (element.Item2 == vehicleStatus)
                 {
                     Console.WriteLine(element.Item1);
                     counter++;
@@ -192,31 +169,42 @@ Please write END when you finish put the data."
                 message = string.Format("No vehicles under the status \"{0}\" in the garage", vheicleStatusString);
                 Console.WriteLine(message);
             }
-            Console.WriteLine("Press RETURN to return to main menu");
-            do
-            {
-                returnString = Console.ReadLine();
-            } while (returnString != k_ReturnString);
+            waitToReturn();
         }
         internal static void ChangeVehicleStatusInGarage(Garage i_Garage)
         {
-
+            string lisencePlateID = GetLicensePlateID(i_Garage, false);
+            eVehicleStatus vehicleStatus = GetVehicleStatus(i_Garage);
+            i_Garage.ChangeVehicleStatus(lisencePlateID, vehicleStatus);
         }
-        internal static void AddAirToVehicleWheels(Garage i_Garage)
+        internal static void AddAMaxAirAmountVehicleWheels(Garage i_Garage)
         {
-
+            string licensePlateID = GetLicensePlateID(i_Garage, false);
+            i_Garage.MakeAirPressureInVehicleMaximum(licensePlateID);
         }
         internal static void RefuelVheicleInGarage(Garage i_Garage)
         {
-
+            string licensePlateID = GetLicensePlateID(i_Garage, false);
+            eFuelType fuelType = GetFuelType(i_Garage);
+            float amountToFill = ChooseAmountOfFuelToFill();
         }
         internal static void ChargeVehicleInGarage(Garage i_Garage)
         {
-
+            string licensePlateID = GetLicensePlateID(i_Garage, false);
+            float amountToFill = ChooseAmountOfFuelToFill();
         }
         internal static void ShowAllDataOfVehicleInGarage(Garage i_Garage)
         {
 
+        }
+        private static void waitToReturn()
+        {
+            string returnString = null;
+            Console.WriteLine("Press RETURN to return to main menu");
+            do
+            {
+               returnString = Console.ReadLine();
+            } while (returnString != k_ReturnString);
         }
     }
 }
