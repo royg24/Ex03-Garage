@@ -31,7 +31,7 @@ namespace Ex03.GarageLogic
             }
             else if(userChoiceNumber == 4)
             {
-                result = new ElectricCar();
+                result = new FueledMotorcycle();
             }
             else if(userChoiceNumber == 5) 
             {

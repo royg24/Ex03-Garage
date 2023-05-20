@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic
     public abstract class Vehicle
     {
         protected string m_ModelName;
-        protected string m_LisenceNumber;
+        protected string m_LisencePlateID;
         protected float m_PrecentageOfEnergyLeft;
         protected Wheel[] m_Wheels;
         public virtual void FillVehicleData(ref List<String> io_Data)
@@ -28,7 +28,7 @@ namespace Ex03.GarageLogic
             float precenatgeOfEnergyLeft;
             if(float.TryParse(i_PrecentageOfEnergyLeft, out precenatgeOfEnergyLeft) == true)
             {
-                if((precenatgeOfEnergyLeft >= 0) && (precenatgeOfEnergyLeft <= 1))
+                if((precenatgeOfEnergyLeft >= 0) && (precenatgeOfEnergyLeft <= 100))
                 {
                     m_PrecentageOfEnergyLeft = precenatgeOfEnergyLeft;
                 }
@@ -63,6 +63,10 @@ namespace Ex03.GarageLogic
                 }
                 return wheels;
             }
+        }
+        public void AddLisencePlate(string i_LisencePlate)
+        {
+            m_LisencePlateID = i_LisencePlate;
         }
     }
 }
