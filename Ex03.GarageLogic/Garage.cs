@@ -29,9 +29,29 @@ namespace Ex03.GarageLogic
         {
             m_VehiclesInGarage.Add(i_LisenceNumber, i_NewVehicle);
         }
-        public void ShowLisenceNumbers()
+        public Tuple<String, eVehicleStatus>[] GetLisencePlateID()
         {
-
+            Tuple<String, eVehicleStatus>[] LisenceNumbersArray = new Tuple<String, eVehicleStatus>[m_VehiclesInGarage.Count];
+            int index = 0;
+            foreach (string licensePlateId in m_VehiclesInGarage.Keys)
+            {
+                Tuple<String, eVehicleStatus> item = new Tuple<string, eVehicleStatus>(licensePlateId, m_VehiclesInGarage[licensePlateId].VehicleStatus);
+                LisenceNumbersArray[index] = item;
+                index++;
+            }
+            return LisenceNumbersArray;
+        }
+        public eVehicleStatus CheckIfStatusValid(string i_VehicleStatus)
+        {
+            eVehicleStatus result;
+            if (Enum.TryParse(i_VehicleStatus, true, out result) == false)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                return result;
+            }
         }
         public void ChangeVehicleStatus()
         {

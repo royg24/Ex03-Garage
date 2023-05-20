@@ -20,7 +20,7 @@ namespace Ex03.GarageLogic
             base.FillVehicleData(ref io_Data);
             fillDangerousSubstanceStatus(io_Data[0]);
             fillCargoVolume(io_Data[1]);
-            FillWheelsData(io_Data[2], io_Data[3], k_NumOfWheels, k_MaxAirPressure);
+            m_Wheels = FillWheelsData(io_Data[2], io_Data[3], k_NumOfWheels, k_MaxAirPressure);
             m_Engine = new FueledEngine(io_Data[4], k_MaxFuelAmount, eFuelType.Soler);
             io_Data = io_Data.Skip(2).ToList();
         }

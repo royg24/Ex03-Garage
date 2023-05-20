@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic
         public override void FillVehicleData(ref List<string> io_Data)
         {
             base.FillVehicleData(ref io_Data);
-            FillWheelsData(io_Data[0], io_Data[1], k_NumOfWheels, k_MaxAirPressure);
+            m_Wheels = FillWheelsData(io_Data[0], io_Data[1], k_NumOfWheels, k_MaxAirPressure);
             m_Engine = new FueledEngine(io_Data[2], k_MaxFuelAmount, eFuelType.Octan98);
             io_Data = io_Data.Skip(3).ToList();
         }
