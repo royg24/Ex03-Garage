@@ -59,11 +59,11 @@ namespace Ex03.ConsoleUI
             eFuelType fuelType = i_Garage.CheckIfFuelTypeValid(fuelTypeString);
             return fuelType;
         }
-        internal static float ChooseAmountOfFuelToFill()
+        internal static float GetFloatFromUser()
         {
-            Console.WriteLine("Choose amount to fuel to fill");
             float amountToFill = float.Parse(Console.ReadLine());
             return amountToFill;
         }
+ 
     }
 }

@@ -74,13 +74,29 @@ namespace Ex03.GarageLogic
                 return result;
             }
         }
-        public void RefuelVheicle(string i_LicenePlateID ,float i_AmountToFuel, eFuelType i_FuelType)
+        public void RefuelVheicle(string i_LicensePlateID ,float i_AmountToFuel, eFuelType i_FuelType)
         {
-            
+            FueledEngine engine = m_VehiclesInGarage[i_LicensePlateID].Vehicle.Engine as FueledEngine;
+            if (engine != null)
+            {
+                engine.ToFuel(i_AmountToFuel, i_FuelType);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
-        public void ChargeVehicleInGarage(string i_LicensePlateID, float i_AmountToCharge)
+        public void ChargeVehicle(string i_LicensePlateID, float i_AmountToCharge)
         {
-
+            ElectricEngine engine = m_VehiclesInGarage[i_LicensePlateID].Vehicle.Engine as ElectricEngine;
+            if (engine != null)
+            {
+                engine.ChargeBattery(i_AmountToCharge);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
         public void ShowAllDataOfVehicle()
         {

@@ -10,14 +10,6 @@ namespace Ex03.GarageLogic
         private const int k_NumOfWheels = 5;
         private const float k_MaxAirPressure = 33f;
         private const float k_MaxHoursInBattery = 5.2f;
-        private ElectricEngine m_Engine;
-        public ElectricEngine Engine
-        {
-            get 
-            { 
-                return m_Engine; 
-            }
-        }
         public override void FillVehicleData(ref List<string> io_Data)
         {
             base.FillVehicleData(ref io_Data);

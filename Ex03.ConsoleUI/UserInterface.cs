@@ -186,12 +186,17 @@ Please write END when you finish put the data."
         {
             string licensePlateID = GetLicensePlateID(i_Garage, false);
             eFuelType fuelType = GetFuelType(i_Garage);
-            float amountToFill = ChooseAmountOfFuelToFill();
+            Console.WriteLine("Choose amount to fuel to fill");
+            float amountToFuel = GetFloatFromUser();
+            i_Garage.RefuelVheicle(licensePlateID, amountToFuel, fuelType);
         }
         internal static void ChargeVehicleInGarage(Garage i_Garage)
         {
             string licensePlateID = GetLicensePlateID(i_Garage, false);
-            float amountToFill = ChooseAmountOfFuelToFill();
+            Console.WriteLine("Choose amount to minutes to add battery");
+            float amountToCharge = GetFloatFromUser();
+            amountToCharge /= 60;
+            i_Garage.ChargeVehicle(licensePlateID, amountToCharge);
         }
         internal static void ShowAllDataOfVehicleInGarage(Garage i_Garage)
         {

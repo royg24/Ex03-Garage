@@ -17,6 +17,14 @@ namespace Ex03.GarageLogic
         protected string m_LisencePlateID;
         protected float m_PrecentageOfEnergyLeft;
         protected Wheel[] m_Wheels;
+        protected Engine m_Engine;
+        public Engine Engine
+        {
+            get
+            {
+                return m_Engine;
+            }
+        }
         public string LicensePlateID
         {
             get
