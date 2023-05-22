@@ -5,12 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Ex03.GarageLogic
 {
-    public enum eNumOfWheels
-    {
-        two,
-        five,
-        fourteen
-    }
     public abstract class Vehicle
     {
         protected string m_ModelName;
